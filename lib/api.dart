@@ -3,7 +3,8 @@ import "dart:convert";
 import "dart:io";
 
 import "package:flutter/foundation.dart";
-import "package:http/http.dart" as http;
+//import "package:http/http.dart" as http;
+import "package:cronet_http.dart" as http;
 import "package:intl/intl.dart";
 import "package:inventree/main.dart";
 import "package:one_context/one_context.dart";
