@@ -3,8 +3,12 @@ import "dart:convert";
 import "dart:io";
 
 import "package:flutter/foundation.dart";
+// FIXME(JEFF): Use cronet_http package as shown
+// 1. https://pub.dev/packages/crohttp://docker.fs1.home:32400/web/
+net_http#using
 //import "package:http/http.dart" as http;
-import "package:cronet_http.dart" as http;
+//import "package:flutter/cronet_http.dart" as http;
+import 'package:cronet_http/cronet_http.dart' as http;
 import "package:intl/intl.dart";
 import "package:inventree/main.dart";
 import "package:one_context/one_context.dart";
@@ -986,7 +990,7 @@ class InvenTreeAPI {
   Future<APIResponse> uploadFile(String url, File f,
       {String name = "attachment", String method="POST", Map<String, dynamic>? fields}) async {
     var _url = makeApiUrl(url);
-
+    // FIXME(JEFF): use package:cronet_http
     var request = http.MultipartRequest(method, Uri.parse(_url));
 
     request.headers.addAll(defaultHeaders());
@@ -1001,7 +1005,7 @@ class InvenTreeAPI {
         }
       });
     }
-
+    // FIXME(JEFF): use package:cronet_http
     var _file = await http.MultipartFile.fromPath(name, f.path);
 
     request.files.add(_file);
@@ -1161,7 +1165,8 @@ class InvenTreeAPI {
 
   HttpClient createClient(String url, {bool strictHttps = false}) {
 
-    var client = HttpClient();
+    //var client = HttpClient();
+    var client = CronetClient();
 
     client.badCertificateCallback = (X509Certificate cert, String host, int port) {
 
