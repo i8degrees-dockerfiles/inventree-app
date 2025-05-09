@@ -5,7 +5,7 @@ import "dart:io";
 import "package:flutter/foundation.dart";
 // FIXME(JEFF): Use cronet_http package as shown
 // 1. https://pub.dev/packages/crohttp://docker.fs1.home:32400/web/
-net_http#using
+// net_http#using
 //import "package:http/http.dart" as http;
 //import "package:flutter/cronet_http.dart" as http;
 import 'package:cronet_http/cronet_http.dart' as http;
